@@ -1,0 +1,36 @@
+{% extends 'kakeibo/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>家計簿</title>
+</head>
+<body>
+    <h1>家計簿</h1>
+    <p>収入合計: {{ total_income }} 円</p>
+    <p>支出合計: {{ total_expense }} 円</p>
+    <p>収支バランス: {{ balance }} 円</p>
+
+    <h2>記録一覧</h2>
+    <table border="1">
+        <tr>
+            <th>日付</th>   
+            <th>カテゴリ</th>
+            <th>内容</th>
+            <th>金額</th>
+            <th>種別</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.category.name }}</td>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.amount }} 円</td>
+            <td>{% if expense.income %}収入{% else %}支出{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}

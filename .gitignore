@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Virtual env
+venv/
+ENV/
+env/
+
+# Django DB
+db.sqlite3
+
+# Django static/compiled files
+staticfiles/
+static/
+media/
+
+# IDE・エディタ
+.vscode/
+.idea/
+
+# Mac OS
+.DS_Store
+
+# Envファイル（環境変数とか）
+.env
+.env.*
+
+# Docker
+*.pid
+*.sock
+*.db
+*.tar
+*.bak
+docker-compose.override.yml
+
+# Migrations（必要に応じて）
+**/migrations/*.pyc
+**/migrations/__pycache__/
+# もしmigrations自体を管理したくなければ↓（でも基本は管理する）
+# **/migrations/
+
+# coverageツールとか
+htmlcov/
+coverage.xml
+*.cover
+
+# その他
+node_modules/
