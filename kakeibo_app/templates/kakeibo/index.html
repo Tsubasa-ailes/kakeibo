@@ -27,7 +27,11 @@
             <td>{{ expense.category.name }}</td>
             <td>{{ expense.description }}</td>
             <td>{{ expense.amount }} 円</td>
-            <td>{% if expense.income %}収入{% else %}支出{% endif %}</td>
+            <td>{% if expense.income %}収入{% else %}支出{% endif %}</td>   
+            <td>
+                <a href="{% url 'edit_expense' expense.id %}" class="my-btn my-edit">編集</a>
+                <a href="{% url 'delete_expense' expense.id %}" class="my-btn my-delete">削除</a>
+            </td>
         </tr>
         {% endfor %}
     </table>

@@ -1,0 +1,26 @@
+{% extends 'kakeibo/base.html' %}
+{% block content %}
+<!-- receipt_upload.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>レシートアップロード</title>
+</head>
+<body>
+    <h1>レシートアップロード</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="receipt">レシート画像をアップロード：</label>
+        <input type="file" name="receipt" accept="image/*" required>
+        <button type="submit">アップロード</button>
+    </form>
+
+    {% if extracted_text %}
+        <h2>OCR結果:</h2>
+        <pre>{{ extracted_text }}</pre>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

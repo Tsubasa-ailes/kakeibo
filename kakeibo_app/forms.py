@@ -9,3 +9,6 @@ class ExpenseForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'type': 'date'}),
             'amount': forms.NumberInput(attrs={'step': '0.01'}),
         }
+
+class ReceiptUploadForm(forms.Form):
+    image = forms.ImageField(label='レシート画像')
